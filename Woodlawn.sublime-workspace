@@ -1,0 +1,251 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"list-styl",
+				"list-style-type"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"sssas",
+				"Set Syntax: Sass"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"sssass",
+				"Set Syntax: Sass"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: html",
+				"Snippet: html"
+			],
+			[
+				"sshtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ss",
+				"Set Syntax: Arduino"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/Max 6.1/Cycling '74/max-externals/maxuino_014/support/maxuino-gui-pattr.json",
+		"/Applications/Arduino.app/Contents/Resources/Java/libraries/Firmata/examples/StandardFirmata/StandardFirmata.ino",
+		"/Applications/Arduino.app/Contents/Resources/Java/examples/03.Analog/AnalogInput/AnalogInput.ino",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/Dayle Rees Colour Schemes/Contrast/Peacock.tmTheme",
+		"/Volumes/Macintosh HD/Users/Brandon/Desktop/Shake Dog Salon/lib/js/jquery.cycle.lite.js",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/Dayle Rees Colour Schemes/Sunburst.tmTheme",
+		"/Volumes/Macintosh HD/Users/Brandon/Desktop/Color Scheme - Default/Sunburst.tmTheme",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/User/bh_core.sublime-settings",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/Dayle Rees Colour Schemes/Peacock.tmTheme",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Volumes/Macintosh HD/Users/Brandon/Desktop/Woodlawn/site/css/common.haml",
+		"/Volumes/Macintosh HD/Users/Brandon/Desktop/Ram's Head Studios/index.html",
+		"/Applications/Utilities/Boot Camp Assistant.app/Contents/Info.plist",
+		"/Volumes/Macintosh HD/Users/Brandon/Desktop/Woodlawn/site/index.html",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Volumes/Macintosh HD/Users/Brandon/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"entity.name.tag",
+			"entity.name",
+			"entity.name.tag",
+			"tag",
+			"brack",
+			"angle",
+			"bracke",
+			"FFF",
+			"fff",
+			"26A6A6",
+			"brack",
+			"color_sc"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.AnalogInput":
+	{
+		"height": 100.0
+	},
+	"output.StandardFirmata":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"project": "Woodlawn.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

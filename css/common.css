@@ -1,0 +1,176 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  font-family: "latolight", "Helvetica Neue", Helvetica, sans-serif; }
+
+#container {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+#container #nav {
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  margin: 0;
+  padding: 0;
+  opacity: 0.7;
+  background: #111;
+  width: 100%;
+  height: auto;
+  text-transform: lowercase;
+  font-family: "latohairline"; }
+#container #nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+#container #nav ul li {
+  position: relative;
+  display: block;
+  padding: 0 0 0 60px;
+  width: 100%;
+  height: 13px;
+  line-height: 13px;
+  font-size: 12px; }
+#container #nav ul li span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 13px;
+  background: #00FF00;
+  opacity: 0.5;
+  transition: all 0.3s ease; }
+#container #nav ul li #homeLink span {
+  background: #00D9FF;
+  opacity: 0.4; }
+#container #nav ul li #artistLink span {
+  background: #FF9600;
+  opacity: 0.4; }
+#container #nav ul li #missionLink span {
+  background: #00FF26;
+  opacity: 0.4; }
+#container #nav ul li #contactLink span {
+  background: #FC449A;
+  opacity: 0.4; }
+#container #nav ul li:hover span {
+  width: 100%; }
+#container #nav ul li a:link, #container #nav ul li a:visited {
+  color: white;
+  text-decoration: none; }
+
+h2 {
+  font-size: 2.4em; }
+
+#home {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  background: url(../img/navy_blue.png) repeat top left fixed; }
+#home h1 {
+  position: relative;
+  top: 40%;
+  margin: 0;
+  padding: 0;
+  font-size: 3em; }
+#home h1 .bold {
+  color: #00D9FF;
+  opacity: 0.4; }
+
+.pageAnchor {
+  position: relative;
+  top: -142px; }
+
+.homeAnchor {
+  position: absolute;
+  top: 0; }
+
+.page h2, .home h1 {
+  position: relative;
+  right: 10%;
+  margin: 30px;
+  padding: 0;
+  text-align: right;
+  text-transform: lowercase; }
+.page h2 .bold, .home h1 .bold {
+  font-family: "latobold";
+  font-size: 1.3em; }
+
+#artists .artist, #mission p, #contact p {
+  width: 80%;
+  margin: 0 auto; }
+
+#artists h3 {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+#artists h4 {
+  font-family: "latobold"; }
+#artists .artist {
+  float: left;
+  position: relative;
+  left: 10%; }
+#artists .bio, #artists .release {
+  padding-left: 10px; }
+#artists .release {
+  float: left;
+  position: relative;
+  width: 340px;
+  max-width: 340px;
+  height: 350px;
+  background: #DDD;
+  margin: 10px; }
+#artists .release .tracks {
+  float: left;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  margin: 0;
+  padding-left: 25px; }
+#artists .release .tracks .span {
+  float: right;
+  font-family: "latobold"; }
+#artists .release img {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  height: auto;
+  opacity: 0.2; }
+
+#mission {
+  clear: left; }
+
+#footer {
+  background: url(../img/navy_blue.png) repeat top left fixed;
+  text-align: right;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 0;
+  padding-right: 110px; }
+#footer ul {
+  list-style-type: none; }
+#footer ul li {
+  display: inline-block;
+  padding-left: 10px; }
+#footer ul li a:link, #footer ul li a:visited {
+  color: white;
+  text-decoration: none; }
+#footer p {
+  margin: 0;
+  padding: 0; }
+
+@media all and (max-width: 500px) {
+  #artists .release {
+    width: 300px;
+    max-width: 300px;
+    height: 310px; }
+  #artists .release img {
+    width: 100%; } }
