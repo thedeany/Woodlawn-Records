@@ -1,14 +1,5 @@
-body {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  font-family: "latolight", "Helvetica Neue", Helvetica, sans-serif; }
-
-#container {
-  margin: 0;
-  padding: 0;
-  width: 100%; }
-#container #nav {
+/* line 1, ../sass/_nav.scss */
+#nav {
   position: fixed;
   z-index: 999;
   top: 60px;
@@ -19,102 +10,197 @@ body {
   width: 100%;
   height: auto;
   text-transform: lowercase;
-  font-family: "latohairline"; }
-#container #nav ul {
+  font-family: "Lato";
+  font-weight: 100;
+}
+/* line 15, ../sass/_nav.scss */
+#nav ul {
   margin: 0;
   padding: 0;
-  list-style-type: none; }
-#container #nav ul li {
+  list-style-type: none;
+}
+/* line 20, ../sass/_nav.scss */
+#nav ul li {
   position: relative;
   display: block;
   padding: 0 0 0 60px;
   width: 100%;
-  height: 13px;
-  line-height: 13px;
-  font-size: 12px; }
-#container #nav ul li span {
+  height: 1.1em;
+  line-height: 1.1em;
+  font-size: 1.1em;
+}
+/* line 29, ../sass/_nav.scss */
+#nav ul li span {
   position: absolute;
   top: 0;
   left: 0;
   width: 0%;
-  height: 13px;
+  height: 1.1em;
   background: #00FF00;
   opacity: 0.5;
-  transition: all 0.3s ease; }
-#container #nav ul li #homeLink span {
+  transition: all 0.3s ease;
+}
+/* line 41, ../sass/_nav.scss */
+#nav ul li #homeLink span {
   background: #00D9FF;
-  opacity: 0.4; }
-#container #nav ul li #artistLink span {
+  opacity: 0.4;
+}
+/* line 45, ../sass/_nav.scss */
+#nav ul li #artistLink span {
   background: #FF9600;
-  opacity: 0.4; }
-#container #nav ul li #missionLink span {
+  opacity: 0.4;
+}
+/* line 49, ../sass/_nav.scss */
+#nav ul li #missionLink span {
   background: #00FF26;
-  opacity: 0.4; }
-#container #nav ul li #contactLink span {
+  opacity: 0.4;
+}
+/* line 53, ../sass/_nav.scss */
+#nav ul li #contactLink span {
   background: #FC449A;
-  opacity: 0.4; }
-#container #nav ul li:hover span {
-  width: 100%; }
-#container #nav ul li a:link, #container #nav ul li a:visited {
-  color: white;
-  text-decoration: none; }
+  opacity: 0.4;
+}
+/* line 58, ../sass/_nav.scss */
+#nav ul li:hover span {
+  width: 100%;
+}
+/* line 62, ../sass/_nav.scss */
+#nav ul li a:link, #nav ul li a:visited {
+  color: #fff;
+  text-decoration: none;
+}
 
+/* line 1, ../sass/_typography.scss */
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+/* line 6, ../sass/_typography.scss */
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+/* line 10, ../sass/_typography.scss */
 h2 {
-  font-size: 2.4em; }
+  font-size: 2.4em;
+}
 
+/* line 15, ../sass/_typography.scss */
+#home h1 {
+  font-size: 3em;
+}
+/* line 17, ../sass/_typography.scss */
+#home h1 .bold {
+  color: #00D9FF;
+  opacity: 0.4;
+}
+
+/* line 24, ../sass/_typography.scss */
+.page h2, .home h1 {
+  text-align: right;
+  text-transform: lowercase;
+}
+/* line 27, ../sass/_typography.scss */
+.page h2 .bold, .home h1 .bold {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+/* line 36, ../sass/_typography.scss */
+.release .tracks span {
+  float: right;
+  font-family: "Lato";
+  font-weight: 300;
+}
+
+/* line 44, ../sass/_typography.scss */
+#footer {
+  text-align: right;
+  text-transform: lowercase;
+}
+/* line 49, ../sass/_typography.scss */
+#footer ul li a:link, #footer ul li a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 11, ../sass/common.scss */
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 17, ../sass/common.scss */
+#container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 23, ../sass/common.scss */
 #home {
   margin: 0;
   padding: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0);
-  background: url(../img/navy_blue.png) repeat top left fixed; }
+  background: url(../img/navy_blue.png) repeat top left fixed;
+}
+/* line 29, ../sass/common.scss */
 #home h1 {
   position: relative;
   top: 40%;
   margin: 0;
   padding: 0;
-  font-size: 3em; }
-#home h1 .bold {
-  color: #00D9FF;
-  opacity: 0.4; }
+}
 
+/* line 37, ../sass/common.scss */
 .pageAnchor {
   position: relative;
-  top: -142px; }
+  top: -142px;
+}
 
+/* line 41, ../sass/common.scss */
 .homeAnchor {
   position: absolute;
-  top: 0; }
+  top: 0;
+}
 
+/* line 46, ../sass/common.scss */
 .page h2, .home h1 {
   position: relative;
   right: 10%;
-  margin: 30px;
+  margin: 30px 0;
   padding: 0;
-  text-align: right;
-  text-transform: lowercase; }
-.page h2 .bold, .home h1 .bold {
-  font-family: "latobold";
-  font-size: 1.3em; }
+}
 
+/* line 54, ../sass/common.scss */
 #artists .artist, #mission p, #contact p {
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
+/* line 60, ../sass/common.scss */
 #artists h3 {
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
-#artists h4 {
-  font-family: "latobold"; }
+  user-select: none;
+}
+/* line 67, ../sass/common.scss */
 #artists .artist {
   float: left;
   position: relative;
-  left: 10%; }
+  left: 10%;
+}
+/* line 72, ../sass/common.scss */
 #artists .bio, #artists .release {
-  padding-left: 10px; }
+  padding-left: 10px;
+}
+/* line 75, ../sass/common.scss */
 #artists .release {
   float: left;
   position: relative;
@@ -122,7 +208,9 @@ h2 {
   max-width: 340px;
   height: 350px;
   background: #DDD;
-  margin: 10px; }
+  margin: 10px;
+}
+/* line 89, ../sass/common.scss */
 #artists .release .tracks {
   float: left;
   position: relative;
@@ -130,10 +218,9 @@ h2 {
   left: 0;
   overflow: scroll;
   margin: 0;
-  padding-left: 25px; }
-#artists .release .tracks .span {
-  float: right;
-  font-family: "latobold"; }
+  padding-left: 25px;
+}
+/* line 98, ../sass/common.scss */
 #artists .release img {
   float: left;
   position: absolute;
@@ -143,34 +230,45 @@ h2 {
   padding: 0;
   width: 350px;
   height: auto;
-  opacity: 0.2; }
+  opacity: 0.2;
+}
 
+/* line 112, ../sass/common.scss */
 #mission {
-  clear: left; }
+  clear: left;
+}
 
+/* line 116, ../sass/common.scss */
 #footer {
   background: url(../img/navy_blue.png) repeat top left fixed;
-  text-align: right;
-  text-transform: lowercase;
   margin: 0;
   padding: 0;
-  padding-right: 110px; }
+  padding-right: 110px;
+}
+/* line 121, ../sass/common.scss */
 #footer ul {
-  list-style-type: none; }
+  list-style-type: none;
+}
+/* line 123, ../sass/common.scss */
 #footer ul li {
   display: inline-block;
-  padding-left: 10px; }
-#footer ul li a:link, #footer ul li a:visited {
-  color: white;
-  text-decoration: none; }
+  padding-left: 0.7em;
+}
+/* line 128, ../sass/common.scss */
 #footer p {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 @media all and (max-width: 500px) {
+  /* line 135, ../sass/common.scss */
   #artists .release {
     width: 300px;
     max-width: 300px;
-    height: 310px; }
+    height: 310px;
+  }
+  /* line 139, ../sass/common.scss */
   #artists .release img {
-    width: 100%; } }
+    width: 100%;
+  }
+}

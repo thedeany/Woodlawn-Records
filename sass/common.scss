@@ -1,89 +1,23 @@
-$navlink: #fff;
+
+@import "nav";
+@import "typography";
+
+
+
+
+
 $bgImage: url(../img/navy_blue.png);
 
 body {
 	margin: 0 auto;
 	padding: 0;
 	width: 100%;
-	font-family: "latolight", "Helvetica Neue", Helvetica, sans-serif;
 }
 
 #container {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-
-	#nav {
-		position: fixed;
-		z-index: 999;
-		top: 60px;
-		margin: 0;
-		padding: 0;
-		opacity: 0.7;
-		background: #111;
-		width: 100%;
-		height: auto;
-		text-transform: lowercase;
-		font-family: "latohairline";
-
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-
-			li {
-				position: relative;
-				display: block;
-				padding: 0 0 0 60px;
-				width: 100%;
-				$height: 13px;
-				height: $height;
-				line-height: $height;
-				font-size: 12px;
-				span {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 0%;
-					height: $height;
-					background: #00FF00;
-					opacity: 0.5;
-					transition: all 0.3s ease;
-				}
-
-				$hoverOpacity: 0.4;
-				#homeLink span {
-					background: #00D9FF;
-					opacity:$hoverOpacity;
-				}
-				#artistLink span {
-					background: #FF9600;
-					opacity: $hoverOpacity;
-				}
-				#missionLink span {
-					background: #00FF26;
-					opacity: $hoverOpacity;
-				}
-				#contactLink span {
-					background: #FC449A;
-					opacity: $hoverOpacity;
-				}
-				
-				&:hover span {
-					width: 100%;
-				}
-
-				a:link, a:visited {
-					color: $navlink;
-					text-decoration: none;
-				}
-			}
-		}
-	}
-}
-
-h2 {
-	font-size: 2.4em;
 }
 
 #home {
@@ -97,11 +31,6 @@ h2 {
 		top: 40%;
 		margin: 0;
 		padding: 0;
-		font-size: 3em;
-		.bold {
-		color: #00D9FF;
-		opacity: 0.4;
-		}
 	}
 }
 
@@ -117,15 +46,8 @@ h2 {
 .page h2, .home h1 {
 	position: relative;
 	right: 10%;
-	margin: 30px;
-	padding: 0;
-	text-align: right;
-	// padding-right: 80px;
-	text-transform: lowercase;
-	.bold {
-		font-family: "latobold";
-		font-size: 1.3em;
-	}
+	margin: 30px 0;
+	padding: 0;	
 }
 
 
@@ -141,9 +63,6 @@ h2 {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-	}
-	h4 {
-		font-family: "latobold";
 	}
 	.artist {
 		float: left;
@@ -175,10 +94,6 @@ h2 {
 			overflow: scroll;
 			margin: 0;
 			padding-left: 25px;
-			.span {
-				float: right;
-				font-family: "latobold";
-			}
 		}
 		img {
 			float: left;
@@ -200,8 +115,6 @@ h2 {
 
 #footer {
 	background: $bgImage repeat top left fixed;
-	text-align: right;
-	text-transform: lowercase;
 	margin: 0;
 	padding: 0;
 	padding-right: 110px;
@@ -209,11 +122,7 @@ h2 {
 		list-style-type: none;
 		li {
 			display: inline-block;
-			padding-left: 10px;
-			a:link, a:visited {
-					color: $navlink;
-					text-decoration: none;
-				}
+			padding-left: 0.7em;
 		}
 	}
 	p {
