@@ -1,6 +1,7 @@
 body {
 	font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
 	font-weight: 100;
+	font-size: 1em;
 }
 
 h1, h2, h3, h4{
@@ -9,6 +10,15 @@ h1, h2, h3, h4{
 
 h2 {
 	font-size: 2.4em;
+}
+
+#nav {
+	text-transform: lowercase;
+	font-family: "Lato";
+	font-weight: 100;
+	li {
+		font-size: 1.1em;
+	}
 }
 
 #home {

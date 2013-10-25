@@ -8,15 +8,10 @@
 	background: #111;
 	width: 100%;
 	height: auto;
-	text-transform: lowercase;
-	font-family: "Lato";
-	font-weight: 100;
-
 	ul {
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
-
 		li {
 			position: relative;
 			display: block;
@@ -25,7 +20,6 @@
 			$height: 1.1em;
 			height: $height;
 			line-height: $height;
-			font-size: 1.1em;
 			span {
 				position: absolute;
 				top: 0;

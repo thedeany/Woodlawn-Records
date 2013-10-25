@@ -1,3 +1,77 @@
+<?php
+
+function secondsToTime($seconds) {
+	$minute = floor($seconds / 60);
+	$second = $seconds % 60;
+
+	return $minute . ":" . $second;
+}
+
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "root";
+$db_name = "Woodlawn Records";
+
+// PDO
+/* Connect to an ODBC database using driver invocation */
+$dsn = 'mysql:dbname='.$db_name.';host='.$db_host;
+
+try {
+    $dbh = new PDO($dsn, $db_user, $db_pass);
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+
+$artistsQuery = $dbh->query("SELECT * FROM Artists ORDER BY added DESC;");
+
+
+$artistsSectionHTML = "";
+
+foreach($artistsQuery as $artistItem) {
+	// retrieve artist title and artistUID.
+	
+	$artistsSectionHTML .= "
+	<!-- begin artist -->
+	<div class='artist'>
+	<h3 id='".$artistItem["itemUID"]."'>".$artistItem["name"]."</h3>
+	<div class='drawer drawer_".$artistItem["itemUID"]."'>
+		<div class='bio'>Caprica consists of only Jacob W. Jones at the moment. Under the moniker Caprica, he produces and DJ electronic dance music (EDM).</div>
+		<div class='releases'>";
+
+	// 2. inside the loop, do another query to search for all albums in the albumTable based on the current artistUID
+	$albumsQuery = $dbh->query("SELECT * FROM Albums WHERE artist_UID = '".$artistItem["itemUID"]."' AND type = 'album';");
+	
+	foreach($albumsQuery as $albumItem) {
+	
+		$artistsSectionHTML .= "<div class='release'>
+			<img src='".$albumItem["album_art"]."' alt='' />
+			<h4>".$albumItem["album_title"]."</h4>
+			<ol class='tracks'>";
+
+		$songsQuery = $dbh->query("SELECT * FROM Albums WHERE type = 'song' AND parentUID = '".$albumItem["itemUID"]."'");
+
+		foreach($songsQuery as $songItem) {
+			$artistsSectionHTML .= "<li>".$songItem["song_title"]."<span id='duration'>".secondsToTime($songItem["duration"])."</span></li>";
+		}
+
+		$artistsSectionHTML.= "
+			</ol>
+		</div>";
+
+	}
+
+	$artistsSectionHTML.= "
+		</div>
+	</div>
+	</div>
+	<!-- end artist -->";
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +80,6 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/common.css">
-
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/color/jquery.color-2.1.1.min.js"></script>
 	<script>
@@ -126,39 +199,28 @@
 				<a name="artists" class="pageAnchor"></a>
 				<h2><span class="bold">Our</span> Artists</h2>
 					<!-- begin artist -->
-					<div id="caprica" class="artist">
+ 					<?php // echo $artistsSectionHTML; ?>
+ 					<div id="caprica" class="artist">
 					<h3 id="caprica">Caprica</h3>
 					<div class="drawer drawer_caprica">
 						<div class="bio">Caprica consists of only Jacob W. Jones at the moment. Under the moniker Caprica, he produces and DJ electronic dance music (EDM).</div>
 						<div class="releases">
 							<div class="release">
-								<img src="img/ellipsis.jpg" alt="" />
-								<h4>...</h4>
-								<ol class="tracks">
-									<li><audio src="lib/audio/ellipsis.mp3" class="audio"></audio><span class="audioCtrl"></span>... <span class="duration">2:52</span></li>
-								</ol>
-							</div>
-							<div class="release">
-								<img src="img/carried.jpg" alt="" />
-								<h4>Carried Away (Caprica Remix)</h4>
-								<ol class="tracks">
-									<li>Carried Away (Caprica Remix) <span id="duration">3:38</span></li>
-								</ol>
-							</div>
-							<div class="release">
 								<img src="img/intervention.jpg" alt="" />
-								<h4>Intervention EP</h4>
-								<ol class="tracks">
-									<li>They Found Us (with Forerunner) <span id="duration">3:26</span></li>
-									<li>Colors Colliding (with Forerunner) <span id="duration">4:10</span></li>
-									<li>Letting Go (with Forerunner) <span id="duration">3:23</span></li>
-								</ol>
+								<div class="releaseInfo">
+									<h4>Intervention EP</h4>
+									<ol class="tracks">
+										<li>They Found Us (with Forerunner) <span id="duration">3:26</span></li>
+										<li>Colors Colliding (with Forerunner) <span id="duration">4:10</span></li>
+										<li>Letting Go (with Forerunner) <span id="duration">3:23</span></li>
+									</ol>
+								</div>
 							</div>
 						</div>
 					</div>
 					</div>
-					<!-- end artist -->
-					<!-- begin artist -->
+
+
 					<div id="anotherCaprica" class="artist">
 					<h3 id="anotherCaprica">Another Caprica</h3>
 					<div class="drawer drawer_anotherCaprica">
@@ -166,30 +228,37 @@
 						<div class="releases">
 							<div class="release">
 								<img src="img/ellipsis.jpg" alt="" />
-								<h4>...</h4>
-								<ol class="tracks">
-									<li>... <span class="duration">2:52</span></li>
-								</ol>
+								<div class="releaseInfo">
+									<h4>...</h4>
+									<ol class="tracks">
+										<li>... <span class="duration">2:52</span></li>
+									</ol>
+								</div>
 							</div>
 							<div class="release">
 								<img src="img/carried.jpg" alt="" />
-								<h4>Carried Away (Caprica Remix)</h4>
-								<ol class="tracks">
-									<li>Carried Away (Caprica Remix) <span id="duration">3:38</span></li>
-								</ol>
+								<div class="releaseInfo">
+									<h4>Carried Away (Caprica Remix)</h4>
+									<ol class="tracks">
+										<li>Carried Away (Caprica Remix) <span id="duration">3:38</span></li>
+									</ol>
+								</div>
 							</div>
 							<div class="release">
 								<img src="img/intervention.jpg" alt="" />
-								<h4>Intervention EP</h4>
-								<ol class="tracks">
-									<li>They Found Us (with Forerunner) <span id="duration">3:26</span></li>
-									<li>Colors Colliding (with Forerunner) <span id="duration">4:10</span></li>
-									<li>Letting Go (with Forerunner) <span id="duration">3:23</span></li>
-								</ol>
+								<div class="releaseInfo">
+									<h4>Intervention EP</h4>
+									<ol class="tracks">
+										<li>They Found Us (with Forerunner) <span id="duration">3:26</span></li>
+										<li>Colors Colliding (with Forerunner) <span id="duration">4:10</span></li>
+										<li>Letting Go (with Forerunner) <span id="duration">3:23</span></li>
+									</ol>
+								</div>
 							</div>
 						</div>
 					</div>
 					</div>
+
 					<!-- end artist -->
 
 			</section>
