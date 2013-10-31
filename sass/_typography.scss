@@ -41,10 +41,14 @@ h2 {
 	}
 }
 
+#artists .bold {
+	color: #FF9600;
+	opacity: 0.6;
+}
+
 .release {
 	.tracks {
 		span {
-			float: right;
 			font-family: "Lato";
 			font-weight: 300;
 		}

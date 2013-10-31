@@ -10,7 +10,7 @@ function secondsToTime($seconds) {
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "root";
-$db_name = "Woodlawn Records";
+$db_name = "woodlawnRecords";
 
 // PDO
 /* Connect to an ODBC database using driver invocation */
@@ -39,19 +39,19 @@ foreach($artistsQuery as $artistItem) {
 		<div class='releases'>";
 
 	// 2. inside the loop, do another query to search for all albums in the albumTable based on the current artistUID
-	$albumsQuery = $dbh->query("SELECT * FROM Albums WHERE artist_UID = '".$artistItem["itemUID"]."' AND type = 'album';");
+	$albumsQuery = $dbh->query("SELECT * FROM Albums WHERE artistUID = '".$artistItem["itemUID"]."' AND type = 'album';");
 	
 	foreach($albumsQuery as $albumItem) {
 	
 		$artistsSectionHTML .= "<div class='release'>
-			<img src='".$albumItem["album_art"]."' alt='' />
-			<h4>".$albumItem["album_title"]."</h4>
+			<img src='".$albumItem["albumArt"]."' alt='' />
+			<h4>".$albumItem["title"]."</h4>
 			<ol class='tracks'>";
 
 		$songsQuery = $dbh->query("SELECT * FROM Albums WHERE type = 'song' AND parentUID = '".$albumItem["itemUID"]."'");
 
 		foreach($songsQuery as $songItem) {
-			$artistsSectionHTML .= "<li>".$songItem["song_title"]."<span id='duration'>".secondsToTime($songItem["duration"])."</span></li>";
+			$artistsSectionHTML .= "<li>".$songItem["title"]."<span id='duration'>".secondsToTime($songItem["duration"])."</span></li>";
 		}
 
 		$artistsSectionHTML.= "
@@ -77,9 +77,9 @@ foreach($artistsQuery as $artistItem) {
 <head>
 	<title>Woodlawn Records</title>
 	
-	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="assets/css/fonts.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="assets/css/common.css">
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/color/jquery.color-2.1.1.min.js"></script>
 	<script>
@@ -88,7 +88,8 @@ foreach($artistsQuery as $artistItem) {
 
 		drawerToggle();
 		resizePage();
-		$(window).bind("resize", resizePage);
+			$(window).bind("resize", resizePage);
+		playPause();
 
 		function drawerToggle() {
 			var drawer = $(".drawer");
@@ -176,6 +177,44 @@ foreach($artistsQuery as $artistItem) {
 			// logo.css("margin", "auto 0");
 		};
 
+
+		function playPause() {
+			var button = $(".controls");
+			var nowPlaying;
+
+			// when a "Play" or "Pause" button is clicked
+			button.click(function() {
+				// "song" is a variable for the audio file which we should play or pause
+				var song = $(this).next("audio")[0];
+				// if this song is paused
+				if(song.paused) {
+					// first, check to see if anything is playing currently
+					if(nowPlaying) {
+						// if there is, stop it
+						$("#nowPlaying").prev().text("Play");
+						$("#nowPlaying")[0].pause();
+						$("#nowPlaying").attr("id","");
+					}
+					// play the selected song
+					song.play();
+					// change the control label
+					$(this).text("Pause");
+				// if this song is already playing (we want to pause it)
+				} else {
+					// pause the song
+					song.pause();
+					// set it to null instead of "nowPlaying"
+					$(this).next("audio").attr("id","");
+					// make sure the page knows nothing is currently playing
+					nowPlaying = null;
+					// change the control label
+					$(this).text("Play");
+				}
+				$("#nowPlaying").attr("id","");
+				nowPlaying = $(this).next().attr("id","nowPlaying");
+			});
+		}
+
 	});
 
 	</script>
@@ -206,7 +245,7 @@ foreach($artistsQuery as $artistItem) {
 						<div class="bio">Caprica consists of only Jacob W. Jones at the moment. Under the moniker Caprica, he produces and DJ electronic dance music (EDM).</div>
 						<div class="releases">
 							<div class="release">
-								<img src="img/intervention.jpg" alt="" />
+								<img src="assets/img/intervention.jpg" alt="" />
 								<div class="releaseInfo">
 									<h4>Intervention EP</h4>
 									<ol class="tracks">
@@ -227,31 +266,31 @@ foreach($artistsQuery as $artistItem) {
 						<div class="bio">Caprica consists of only Jacob W. Jones at the moment. Under the moniker Caprica, he produces and DJ electronic dance music (EDM).</div>
 						<div class="releases">
 							<div class="release">
-								<img src="img/ellipsis.jpg" alt="" />
+								<img src="assets/img/ellipsis.jpg" alt="" />
 								<div class="releaseInfo">
 									<h4>...</h4>
 									<ol class="tracks">
-										<li>... <span class="duration">2:52</span></li>
+										<li>...<span class="trackInfo"><span class="duration">2:52</span><span class="controls">Play</span><audio src="assets/audio/ellipsis.mp3" data-itemUID="SG4"></audio></span></li>
 									</ol>
 								</div>
 							</div>
 							<div class="release">
-								<img src="img/carried.jpg" alt="" />
+								<img src="assets/img/carried.jpg" alt="" />
 								<div class="releaseInfo">
 									<h4>Carried Away (Caprica Remix)</h4>
 									<ol class="tracks">
-										<li>Carried Away (Caprica Remix) <span id="duration">3:38</span></li>
+										<li>Carried Away (Caprica Remix)<span class="trackInfo"><span class="duration">3:38</span><span class="controls">Play</span><audio src="assets/audio/carriedAway.mp3" data-itemUID="SG5"></audio></span></li>
 									</ol>
 								</div>
 							</div>
 							<div class="release">
-								<img src="img/intervention.jpg" alt="" />
+								<img src="assets/img/intervention.jpg" alt="" />
 								<div class="releaseInfo">
 									<h4>Intervention EP</h4>
 									<ol class="tracks">
-										<li>They Found Us (with Forerunner) <span id="duration">3:26</span></li>
-										<li>Colors Colliding (with Forerunner) <span id="duration">4:10</span></li>
-										<li>Letting Go (with Forerunner) <span id="duration">3:23</span></li>
+										<li>They Found Us (with Forerunner)<span class="trackInfo"><span class="duration">3:26</span><span class="controls">Play</span><audio src="assets/audio/theyFoundUs.mp3"></audio></span></li>
+										<li>Colors Colliding (with Forerunner) <span class="trackInfo"><span class="duration">4:10</span><span class="controls">Play</span><audio src="assets/audio/colorsColliding.mp3"></audio></span></li>
+										<li>Letting Go (with Forerunner) <span class="trackInfo"><span class="duration">3:23</span><span class="controls">Play</span><audio src="assets/audio/lettingGo.mp3"></audio></span></li>
 									</ol>
 								</div>
 							</div>

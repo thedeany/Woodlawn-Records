@@ -36,7 +36,7 @@ body {
 
 .pageAnchor {
 	position: relative;
-	top: -142px;
+	top: -10em;
 }
 .homeAnchor {
 	position: absolute;
@@ -96,6 +96,25 @@ body {
 		.tracks {
 			margin: 0;
 			padding-left: 3em;
+			li {
+				margin-bottom: 2px;
+			}
+			.trackInfo {
+				float: right;
+				display: block;
+			}
+			.duration {
+				display: inline-block;
+			}
+			.controls {
+				display: inline-block;
+				width: 2.7em;
+				margin-left: 0.3em;
+				cursor: pointer;
+				border: 1px solid #000;
+				text-align: center;
+				line-height: 1em;
+			}
 		}
 	}
 }
