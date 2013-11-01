@@ -1,11 +1,19 @@
+html {
+	font-size: 62.5%;
+}
 body {
 	font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
 	font-weight: 100;
-	font-size: 1em;
+	font-size: 2em;
+	letter-spacing: 1px;
 }
 
-h1, h2, h3, h4{
+h1, h2{
 	font-weight: 300;
+}
+
+h3, h4 {
+	font-weight: 400;
 }
 
 h2 {
@@ -26,8 +34,15 @@ h2 {
 		font-size: 3em;
 		.bold {
 		color: #00D9FF;
-		opacity: 0.4;
+		opacity: 0.6;
 		}
+	}
+}
+
+.page {
+	a:link, a:visited {
+		color: inherit;
+		text-decoration: none;
 	}
 }
 

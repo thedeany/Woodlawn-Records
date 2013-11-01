@@ -4,8 +4,8 @@
 	top: 60px;
 	margin: 0;
 	padding: 0;
-	opacity: 0.7;
-	background: #111;
+	opacity: 0.4;
+	background: #000;
 	width: 100%;
 	height: auto;
 	ul {
@@ -15,15 +15,17 @@
 		li {
 			position: relative;
 			display: block;
-			padding: 0 0 0 60px;
+			padding: 0 0 0 3%;
 			width: 100%;
 			$height: 1.1em;
 			height: $height;
 			line-height: $height;
+			opacity: 1;
 			span {
 				position: absolute;
 				top: 0;
 				left: 0;
+				z-index: -1;
 				width: 0%;
 				height: $height;
 				background: #00FF00;
@@ -31,20 +33,20 @@
 				transition: all 0.3s ease;
 			}
 
-			$hoverOpacity: 0.8;
-			#homeLink span {
+			$hoverOpacity: 1;
+			.homeLink span {
 				background: #00D9FF;
-				opacity:$hoverOpacity;
+				opacity: $hoverOpacity;
 			}
-			#artistLink span {
+			.artistLink span {
 				background: #FF9600;
 				opacity: $hoverOpacity;
 			}
-			#missionLink span {
+			.missionLink span {
 				background: #00FF26;
 				opacity: $hoverOpacity;
 			}
-			#contactLink span {
+			.contactLink span {
 				background: #FC449A;
 				opacity: $hoverOpacity;
 			}

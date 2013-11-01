@@ -5,8 +5,8 @@
   top: 60px;
   margin: 0;
   padding: 0;
-  opacity: 0.7;
-  background: #111;
+  opacity: 0.4;
+  background: #000;
   width: 100%;
   height: auto;
 }
@@ -20,120 +20,139 @@
 #nav ul li {
   position: relative;
   display: block;
-  padding: 0 0 0 60px;
+  padding: 0 0 0 3%;
   width: 100%;
   height: 1.1em;
   line-height: 1.1em;
+  opacity: 1;
 }
-/* line 23, ../../sass/_nav.scss */
+/* line 24, ../../sass/_nav.scss */
 #nav ul li span {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 0%;
   height: 1.1em;
   background: #00FF00;
   opacity: 0.5;
   transition: all 0.3s ease;
 }
-/* line 35, ../../sass/_nav.scss */
-#nav ul li #homeLink span {
+/* line 37, ../../sass/_nav.scss */
+#nav ul li .homeLink span {
   background: #00D9FF;
-  opacity: 0.8;
+  opacity: 1;
 }
-/* line 39, ../../sass/_nav.scss */
-#nav ul li #artistLink span {
+/* line 41, ../../sass/_nav.scss */
+#nav ul li .artistLink span {
   background: #FF9600;
-  opacity: 0.8;
+  opacity: 1;
 }
-/* line 43, ../../sass/_nav.scss */
-#nav ul li #missionLink span {
+/* line 45, ../../sass/_nav.scss */
+#nav ul li .missionLink span {
   background: #00FF26;
-  opacity: 0.8;
+  opacity: 1;
 }
-/* line 47, ../../sass/_nav.scss */
-#nav ul li #contactLink span {
+/* line 49, ../../sass/_nav.scss */
+#nav ul li .contactLink span {
   background: #FC449A;
-  opacity: 0.8;
+  opacity: 1;
 }
-/* line 52, ../../sass/_nav.scss */
+/* line 54, ../../sass/_nav.scss */
 #nav ul li:hover span {
   width: 100%;
 }
-/* line 56, ../../sass/_nav.scss */
+/* line 58, ../../sass/_nav.scss */
 #nav ul li a:link, #nav ul li a:visited {
   color: #fff;
   text-decoration: none;
 }
 
 /* line 1, ../../sass/_typography.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 4, ../../sass/_typography.scss */
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 1em;
-}
-
-/* line 7, ../../sass/_typography.scss */
-h1, h2, h3, h4 {
-  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: 1px;
 }
 
 /* line 11, ../../sass/_typography.scss */
+h1, h2 {
+  font-weight: 300;
+}
+
+/* line 15, ../../sass/_typography.scss */
+h3, h4 {
+  font-weight: 400;
+}
+
+/* line 19, ../../sass/_typography.scss */
 h2 {
   font-size: 2.4em;
 }
 
-/* line 15, ../../sass/_typography.scss */
+/* line 23, ../../sass/_typography.scss */
 #nav {
   text-transform: lowercase;
   font-family: "Lato";
   font-weight: 100;
 }
-/* line 19, ../../sass/_typography.scss */
+/* line 27, ../../sass/_typography.scss */
 #nav li {
   font-size: 1.1em;
 }
 
-/* line 25, ../../sass/_typography.scss */
+/* line 33, ../../sass/_typography.scss */
 #home h1 {
   font-size: 3em;
 }
-/* line 27, ../../sass/_typography.scss */
+/* line 35, ../../sass/_typography.scss */
 #home h1 .bold {
   color: #00D9FF;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
-/* line 34, ../../sass/_typography.scss */
+/* line 43, ../../sass/_typography.scss */
+.page a:link, .page a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* line 49, ../../sass/_typography.scss */
 .page h2, .home h1 {
   text-align: right;
   text-transform: lowercase;
 }
-/* line 37, ../../sass/_typography.scss */
+/* line 52, ../../sass/_typography.scss */
 .page h2 .bold, .home h1 .bold {
   font-family: "Lato";
   font-weight: 700;
   font-size: 1.3em;
 }
 
-/* line 44, ../../sass/_typography.scss */
+/* line 59, ../../sass/_typography.scss */
 #artists .bold {
   color: #FF9600;
   opacity: 0.6;
 }
 
-/* line 51, ../../sass/_typography.scss */
+/* line 66, ../../sass/_typography.scss */
 .release .tracks span {
   font-family: "Lato";
   font-weight: 300;
 }
 
-/* line 58, ../../sass/_typography.scss */
+/* line 73, ../../sass/_typography.scss */
 #footer {
   text-align: right;
   text-transform: lowercase;
 }
-/* line 63, ../../sass/_typography.scss */
+/* line 78, ../../sass/_typography.scss */
 #footer ul li a:link, #footer ul li a:visited {
   color: #fff;
   text-decoration: none;
@@ -209,18 +228,24 @@ body {
   position: relative;
   left: 10%;
 }
-/* line 72, ../../sass/common.scss */
+/* line 73, ../../sass/common.scss */
 #artists .bio, #artists .release {
   margin: 0 0 1em 1em;
 }
-/* line 75, ../../sass/common.scss */
+/* line 76, ../../sass/common.scss */
+#artists .releases {
+  overflow-x: scroll;
+}
+/* line 79, ../../sass/common.scss */
 #artists .release {
   float: left;
   position: relative;
   width: 100%;
+  min-width: 900px;
   height: 350px;
+  overflow: auto;
 }
-/* line 81, ../../sass/common.scss */
+/* line 86, ../../sass/common.scss */
 #artists .release img {
   float: left;
   margin: 0;
@@ -228,31 +253,32 @@ body {
   width: 30%;
   height: auto;
 }
-/* line 91, ../../sass/common.scss */
+/* line 93, ../../sass/common.scss */
 #artists .release .releaseInfo {
   float: left;
-  width: 40%;
   padding-left: 2em;
+  position: relative;
 }
-/* line 96, ../../sass/common.scss */
+/* line 100, ../../sass/common.scss */
 #artists .release .tracks {
   margin: 0;
   padding-left: 3em;
+  width: 100%;
 }
-/* line 99, ../../sass/common.scss */
+/* line 104, ../../sass/common.scss */
 #artists .release .tracks li {
   margin-bottom: 2px;
 }
-/* line 102, ../../sass/common.scss */
+/* line 107, ../../sass/common.scss */
 #artists .release .tracks .trackInfo {
   float: right;
   display: block;
 }
-/* line 106, ../../sass/common.scss */
+/* line 111, ../../sass/common.scss */
 #artists .release .tracks .duration {
   display: inline-block;
 }
-/* line 109, ../../sass/common.scss */
+/* line 114, ../../sass/common.scss */
 #artists .release .tracks .controls {
   display: inline-block;
   width: 2.7em;
@@ -263,35 +289,34 @@ body {
   line-height: 1em;
 }
 
-/* line 122, ../../sass/common.scss */
+/* line 127, ../../sass/common.scss */
 #mission {
   clear: both;
 }
 
-/* line 126, ../../sass/common.scss */
+/* line 131, ../../sass/common.scss */
 #footer {
   background: url(../img/navy_blue.png) repeat top left fixed;
   margin: 0;
-  padding: 0;
-  padding-right: 110px;
+  padding: 0 10% 0 0;
 }
-/* line 131, ../../sass/common.scss */
+/* line 135, ../../sass/common.scss */
 #footer ul {
   list-style-type: none;
 }
-/* line 133, ../../sass/common.scss */
+/* line 137, ../../sass/common.scss */
 #footer ul li {
   display: inline-block;
   padding-left: 0.7em;
 }
-/* line 138, ../../sass/common.scss */
+/* line 142, ../../sass/common.scss */
 #footer p {
   margin: 0;
   padding: 0;
 }
 
 @media all and (max-device-width: 480px) {
-  /* line 147, ../../sass/common.scss */
+  /* line 151, ../../sass/common.scss */
   body {
     font-size: 3em;
   }

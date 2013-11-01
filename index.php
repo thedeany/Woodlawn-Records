@@ -39,7 +39,7 @@ foreach($artistsQuery as $artistItem) {
 		<div class='releases'>";
 
 	// 2. inside the loop, do another query to search for all albums in the albumTable based on the current artistUID
-	$albumsQuery = $dbh->query("SELECT * FROM Albums WHERE artistUID = '".$artistItem["itemUID"]."' AND type = 'album';");
+	$albumsQuery = $dbh->query("SELECT * FROM albumsAndSongs WHERE artistUID = '".$artistItem["itemUID"]."' AND type = 'album';");
 	
 	foreach($albumsQuery as $albumItem) {
 	
@@ -48,7 +48,7 @@ foreach($artistsQuery as $artistItem) {
 			<h4>".$albumItem["title"]."</h4>
 			<ol class='tracks'>";
 
-		$songsQuery = $dbh->query("SELECT * FROM Albums WHERE type = 'song' AND parentUID = '".$albumItem["itemUID"]."'");
+		$songsQuery = $dbh->query("SELECT * FROM albumsAndSongs WHERE type = 'song' AND parentUID = '".$albumItem["itemUID"]."'");
 
 		foreach($songsQuery as $songItem) {
 			$artistsSectionHTML .= "<li>".$songItem["title"]."<span id='duration'>".secondsToTime($songItem["duration"])."</span></li>";
@@ -78,17 +78,19 @@ foreach($artistsQuery as $artistItem) {
 	<title>Woodlawn Records</title>
 	
 	<link rel="stylesheet" href="assets/css/fonts.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="assets/css/common.css">
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/color/jquery.color-2.1.1.min.js"></script>
+	<script src="assets/js/waypoints.min.js"></script>
 	<script>
 
 	$(document).ready(function() {
 
 		drawerToggle();
-		resizePage();
-			$(window).bind("resize", resizePage);
+		resizeHomePage();
+			$(window).bind("resize", resizeHomePage);
+		navColorOnScroll();
 		playPause();
 
 		function drawerToggle() {
@@ -119,16 +121,16 @@ foreach($artistsQuery as $artistItem) {
 		    var aTag = $("a[name='"+ aid +"']");
 		    $('html,body').animate({scrollTop: aTag.offset().top},700);
 		}
-			$("#homeLink").click(function() {
+			$(".homeLink").click(function() {
 				scrollToAnchor('home');
 			});
-			$("#artistLink").click(function() {
+			$(".artistLink").click(function() {
 				scrollToAnchor('artists');
 			});
-			$("#missionLink").click(function() {
+			$(".missionLink").click(function() {
 				scrollToAnchor('mission');
 			});
-			$("#contactLink").click(function() {
+			$(".contactLink").click(function() {
 				scrollToAnchor('contact');
 			});
 
@@ -144,29 +146,7 @@ foreach($artistsQuery as $artistItem) {
 
 		sortUsingNestedText($("#artists"), "div", "h3");
 
-
-		// var audio = $(".audio");
-		// var audioCtrl = $(".audioCtrl");
-		// audioCtrl.click(function() {
-		// 	var pause = audioCtrl.innerHTML === "Pause";
-		// 	audioCtrl.innerHTML = pause ? "Play" : "Pause";
-
-		// 	var method = pause ? "pause" : "play";
-		// 	audio[method]();
-
-		// 	return false;
-		// });
-
-
-		// var winWidth = $(window).innerWidth();
-		// var winHeight = $(window).innerHeight();
-		// $(window).resize(function() {
-		// 	winWidth = $(window).innerWidth();
-		// 	winHeight = $(window).innerHeight();
-		// 	console.log(winWidth,winHeight);
-		// });
-
-		function resizePage() {
+		function resizeHomePage() {
 			var winHeight = $(window).innerHeight();
 			var pageHeight = winHeight - 105;
 			var logo = $("#home h1");
@@ -175,6 +155,13 @@ foreach($artistsQuery as $artistItem) {
 			$("#home").css("height", pageHeight);
 
 			// logo.css("margin", "auto 0");
+		};
+
+		function navColorOnScroll() {
+			$("#artists").waypoint(function() {
+				//alert("Artists section.");
+				$("#nav .artistLink").next().css({"width":"100%"});
+			}, {offset: 200});
 		};
 
 
@@ -223,20 +210,20 @@ foreach($artistsQuery as $artistItem) {
 	<div id="container">
 		<div id="nav">
 			<ul>
-				<li><a href="#home" id="homeLink" class="navlink">Home<span></span></a></li>
-				<li><a href="#artists" id="artistLink" class="navlink">Artists<span></span></a></li>
-				<li><a href="#mission" id="missionLink" class="navlink">Mission<span></span></a></li>
-				<li><a href="#contact" id="contactLink" class="navlink">Contact<span></span></a></li>
+				<li><a href="#home" class="navlink homeLink">Home<span></span></a></li>
+				<li><a href="#artists" class="navlink artistLink">Artists<span></span></a></li>
+				<li><a href="#mission" class="navlink missionLink">Mission<span></span></a></li>
+				<li><a href="#contact" class="navlink contactLink">Contact<span></span></a></li>
 			</ul>
 		</div>
 		<div id="content">
-			<section id="home" class="home">
+			<section id="home" class="home page">
 				<a name="home" class="pageAnchor homeAnchor"></a>
-				<h1><span class="bold">Woodlawn</span> Records</h1>
+				<h1><a href="#home" class="homeLink"><span class="bold">Woodlawn</span> Records</a></h1>
 			</section>
 			<section id="artists" class="page">
 				<a name="artists" class="pageAnchor"></a>
-				<h2><span class="bold">Our</span> Artists</h2>
+				<h2><a href="#artists" class="artistLink"><span class="bold">Our</span> Artists</a></h2>
 					<!-- begin artist -->
  					<?php // echo $artistsSectionHTML; ?>
  					<div id="caprica" class="artist">
